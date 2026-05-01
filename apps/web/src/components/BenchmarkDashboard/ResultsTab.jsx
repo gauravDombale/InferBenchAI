@@ -70,18 +70,18 @@ export function ResultsTab({ results, expandedRow, setExpandedRow }) {
                     >
                       {r.model}
                     </td>
-                    <td className="px-4 py-3">
+                    <td className="px-4 py-3 whitespace-nowrap">
                       <span className="px-2 py-0.5 bg-white/8 rounded text-xs text-gray-400 capitalize">
                         {(r.category || "").replace(/_/g, " ")}
                       </span>
                     </td>
                     <td className="px-4 py-3">
                       {r.run_type === "cold" ? (
-                        <span className="px-2 py-0.5 bg-blue-500/15 text-blue-400 text-xs rounded-full">
+                        <span className="px-2 py-0.5 bg-blue-500/15 text-blue-400 text-xs rounded-full whitespace-nowrap">
                           ❄ Cold
                         </span>
                       ) : (
-                        <span className="px-2 py-0.5 bg-orange-500/15 text-orange-400 text-xs rounded-full">
+                        <span className="px-2 py-0.5 bg-orange-500/15 text-orange-400 text-xs rounded-full whitespace-nowrap">
                           🔥 Warm
                         </span>
                       )}
@@ -119,7 +119,7 @@ export function ResultsTab({ results, expandedRow, setExpandedRow }) {
                     <td className="px-4 py-3 text-xs text-cyan-600 font-mono">
                       {costEstimate(r.latency_ms)}
                     </td>
-                    <td className="px-4 py-3 text-xs text-gray-500 max-w-xs truncate">
+                    <td className="px-4 py-3 text-xs text-gray-500 max-w-md truncate" title={r.evaluation_reason}>
                       {r.evaluation_reason || "⏳ Pending..."}
                     </td>
                   </tr>

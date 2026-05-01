@@ -27,7 +27,7 @@ export function ThroughputChart({ chartData }) {
           <CartesianGrid strokeDasharray="3 3" stroke="#222" />
           <XAxis dataKey="model" stroke="#555" tick={{ fontSize: 11 }} />
           <YAxis stroke="#555" tick={{ fontSize: 11 }} />
-          <Tooltip {...darkTooltip} formatter={(v) => [`${v} tok/s`, "TPS"]} />
+          <Tooltip {...darkTooltip} cursor={{ fill: 'transparent' }} formatter={(v) => [`${v} tok/s`, "TPS"]} />
           <Bar dataKey="avgTPS" radius={[4, 4, 0, 0]}>
             {chartData.map((e) => (
               <Cell key={e.model} fill={getColor(e.model)} />

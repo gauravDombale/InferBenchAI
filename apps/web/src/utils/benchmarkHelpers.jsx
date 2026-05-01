@@ -1,24 +1,24 @@
 export function LatencyBadge({ ms }) {
   if (ms < 1000)
     return (
-      <span className="px-2 py-0.5 bg-green-500/20 text-green-400 text-xs rounded-full">
+      <span className="px-2 py-0.5 bg-green-500/20 text-green-400 text-xs rounded-full whitespace-nowrap">
         ⚡ Real-time
       </span>
     );
   if (ms < 3000)
     return (
-      <span className="px-2 py-0.5 bg-yellow-500/20 text-yellow-400 text-xs rounded-full">
+      <span className="px-2 py-0.5 bg-yellow-500/20 text-yellow-400 text-xs rounded-full whitespace-nowrap">
         ✓ Acceptable
       </span>
     );
   if (ms < 5000)
     return (
-      <span className="px-2 py-0.5 bg-orange-500/20 text-orange-400 text-xs rounded-full">
+      <span className="px-2 py-0.5 bg-orange-500/20 text-orange-400 text-xs rounded-full whitespace-nowrap">
         ⚠ Slow
       </span>
     );
   return (
-    <span className="px-2 py-0.5 bg-red-500/20 text-red-400 text-xs rounded-full">
+    <span className="px-2 py-0.5 bg-red-500/20 text-red-400 text-xs rounded-full whitespace-nowrap">
       ✗ Very Slow
     </span>
   );

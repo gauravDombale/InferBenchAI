@@ -42,7 +42,7 @@ export function MemoryPerformanceChart({ chartData }) {
             orientation="right"
             domain={[0, 5]}
           />
-          <Tooltip {...darkTooltip} />
+          <Tooltip {...darkTooltip} cursor={{ fill: 'transparent' }} />
           <Legend wrapperStyle={{ fontSize: 11 }} />
           <Bar
             yAxisId="ram"
