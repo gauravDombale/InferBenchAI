@@ -7,7 +7,7 @@ export function useChartData(results) {
       if (!acc[r.model])
         acc[r.model] = { model: r.model, tL: 0, tT: 0, tS: 0, tR: 0, n: 0 };
       acc[r.model].tL += r.latency_ms || 0;
-      acc[r.model].tT += r.tokens_per_sec || 0;
+      acc[r.model].tT += parseFloat(r.tokens_per_sec || 0);
       acc[r.model].tS += r.score || 0;
       acc[r.model].tR += r.ram_usage_mb || 0;
       acc[r.model].n += 1;
@@ -40,9 +40,9 @@ export function useRadarData(results) {
       acc[k].count += 1;
     });
     const MODELS = [
-      { id: "mistral", name: "Mistral 7B", type: "7B" },
-      { id: "llama3", name: "Llama 3 8B", type: "8B" },
-      { id: "phi", name: "Phi-3 Mini", type: "3.8B" },
+      { id: "qwen2.5:0.5b", name: "Qwen 2.5 0.5B", type: "0.5B" },
+      { id: "llama3.2:1b", name: "LLaMA 3.2 1B", type: "1B" },
+      { id: "tinyllama", name: "TinyLlama", type: "1.1B" },
     ];
     return cats.map((cat) => {
       const entry = { category: cat.replace(/_/g, " ") };

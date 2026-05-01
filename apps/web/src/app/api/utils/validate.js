@@ -23,7 +23,7 @@ export function validateModel(model) {
 
 // ─── Judge model allowlist ───────────────────────────────────────────────────
 export function validateJudgeModel(model) {
-  const fallback = "llama3";
+  const fallback = "llama3.2:1b";
   if (!model) return { valid: true, value: fallback };
   const trimmed = String(model).trim().toLowerCase();
   if (!ALLOWED_JUDGE_MODELS.includes(trimmed)) {

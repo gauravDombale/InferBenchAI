@@ -50,7 +50,7 @@ export function useBenchmarkRunner() {
       queryClient.invalidateQueries({ queryKey: ["results"] });
 
       // 3. Evaluate (rule-based first, then LLM-as-judge if needed)
-      const judgeModel = model === "mistral" ? "llama3" : "mistral";
+      const judgeModel = model === "qwen2.5:0.5b" ? "llama3.2:1b" : "qwen2.5:0.5b";
       const evalResult = await evaluateResponse(
         gen.text,
         prompt.expected,

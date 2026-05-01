@@ -17,10 +17,10 @@ export async function ollamaHealth() {
       };
     const data = await res.json();
     const pulled = (data.models || []).map((m) =>
-      m.name.split(":")[0].toLowerCase(),
+      m.name.toLowerCase(),
     );
-    const required = ["mistral", "llama3", "phi"];
-    const missing = required.filter((r) => !pulled.some((p) => p.includes(r)));
+    const required = ["qwen2.5:0.5b", "llama3.2:1b", "tinyllama"];
+    const missing = required.filter((r) => !pulled.some((p) => p.startsWith(r)));
     return { ok: true, pulled, missing, ready: missing.length === 0 };
   } catch (err) {
     // "Failed to fetch" / TypeError almost always means CORS blocked —

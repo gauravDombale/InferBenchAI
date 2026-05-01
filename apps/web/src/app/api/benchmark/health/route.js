@@ -31,7 +31,7 @@ export async function GET() {
     const pulledModels = (data.models || []).map((m) => m.name);
 
     // Check which of our required models are actually pulled
-    const requiredModels = ["mistral", "llama3", "phi"];
+    const requiredModels = ["qwen2.5:0.5b", "llama3.2:1b", "tinyllama"];
     const modelStatus = requiredModels.map((id) => ({
       id,
       pulled: pulledModels.some((name) =>

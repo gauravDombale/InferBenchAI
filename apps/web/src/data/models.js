@@ -1,7 +1,7 @@
 export const MODELS = [
-  { id: "mistral", name: "Mistral 7B", type: "General" },
-  { id: "llama3", name: "LLaMA 3 8B", type: "Reasoning" },
-  { id: "phi", name: "Phi-3 Mini", type: "Efficient" },
+  { id: "qwen2.5:0.5b", name: "Qwen 2.5 0.5B", type: "General" },
+  { id: "llama3.2:1b", name: "LLaMA 3.2 1B", type: "Reasoning" },
+  { id: "tinyllama", name: "TinyLlama", type: "Efficient" },
 ];
 
 export const CATEGORIES = [
@@ -14,4 +14,4 @@ export const CATEGORIES = [
 
 // Used for server-side allowlist validation
 export const ALLOWED_MODELS = MODELS.map((m) => m.id);
-export const ALLOWED_JUDGE_MODELS = ["llama3", "mistral", "phi"];
+export const ALLOWED_JUDGE_MODELS = ["llama3.2:1b", "qwen2.5:0.5b", "tinyllama"];

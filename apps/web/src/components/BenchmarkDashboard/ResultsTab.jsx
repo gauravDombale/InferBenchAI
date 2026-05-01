@@ -59,11 +59,11 @@ export function ResultsTab({ results, expandedRow, setExpandedRow }) {
                       className="px-4 py-3 font-mono text-xs font-bold"
                       style={{
                         color:
-                          r.model === "mistral"
+                          r.model === "qwen2.5:0.5b"
                             ? "#3b82f6"
-                            : r.model === "llama3"
+                            : r.model === "llama3.2:1b"
                               ? "#a855f7"
-                              : r.model === "phi"
+                              : r.model === "tinyllama"
                                 ? "#22c55e"
                                 : "#3b82f6",
                       }}
@@ -87,7 +87,7 @@ export function ResultsTab({ results, expandedRow, setExpandedRow }) {
                       )}
                     </td>
                     <td className="px-4 py-3 text-gray-300 text-xs">
-                      {r.tokens_per_sec?.toFixed(1)}
+                      {r.tokens_per_sec ? parseFloat(r.tokens_per_sec).toFixed(1) : "—"}
                     </td>
                     <td className="px-4 py-3 text-gray-300 text-xs">
                       {r.latency_ms?.toLocaleString()}ms

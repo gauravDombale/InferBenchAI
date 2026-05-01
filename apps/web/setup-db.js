@@ -25,12 +25,24 @@ async function setup() {
         tokens_per_sec NUMERIC NOT NULL,
         response_text TEXT,
         score INTEGER,
+        evaluation_reason TEXT,
         ram_usage_mb INTEGER,
         cpu_percent INTEGER,
         run_type TEXT NOT NULL,
         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
       );
     `;
+
+    // Add column if it doesn't exist for existing databases
+    try {
+      await sql`ALTER TABLE results ADD COLUMN evaluation_reason TEXT;`;
+    } catch (e) {
+      // Column might already exist, ignore error
+      if (e.code !== '42701') { // 42701 is duplicate_column error in Postgres
+        console.warn("Could not add evaluation_reason column:", e.message);
+      }
+    }
+
 
     await sql`
       CREATE TABLE IF NOT EXISTS auth_users (
